@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_mental_health/components/rounded_button.dart';
 import 'package:flutter_mental_health/components/text_field_input.dart';
 import 'package:flutter_mental_health/constants.dart';
+import 'package:phone_form_field/phone_form_field.dart';
+import 'package:phone_numbers_parser/phone_numbers_parser.dart';
+import 'sign_up_authenticate/sign_up_authen.dart';
 
-import 'sign_up_authen.dart';
+class SignUpWithPhone extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _SignUpWithPhoneState();
+  }
+}
 
-class SignUpWithPhone extends StatelessWidget {
+class _SignUpWithPhoneState extends State<SignUpWithPhone> {
+  String _phone='';
+  final phoneEdittingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    String prefixText = "+84";
     return (Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -30,13 +42,38 @@ class SignUpWithPhone extends StatelessWidget {
             }),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 50),
+        padding: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFieldInput(hinText: "Email"),
+              TextField(
+                controller: phoneEdittingController,
+                onChanged: (text) {
+                  this.setState(() {
+                    _phone = text;
+                  });
+                },
+                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(vertical: 0),
+                  hintText: " Phone",
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(width: 1, color: textColor),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(50),
+                    ),
+                  ),
+                  hintStyle: TextStyle(color: buttonColor),
+                  prefixIcon: Icon(
+                    Icons.circle_rounded,
+                    color: buttonColor,
+                  ),
+                  prefixText: prefixText,
+                ),
+                style: Theme.of(context).textTheme.subtitle1,
+              ),
               SizedBox(
                 height: 20,
                 width: double.infinity,
@@ -46,7 +83,7 @@ class SignUpWithPhone extends StatelessWidget {
                   press: () => {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return SignUpAuthenticate();
+                          return SignUpAuthenticate(PhoneNum:('0'+_phone),);
                         }))
                       }),
             ],

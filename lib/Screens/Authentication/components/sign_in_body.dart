@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mental_health/constants.dart';
 import '../../../components/rounded_button.dart';
 import '../../../components/text_field_input.dart';
-import 'have_account_or_not.dart';
+import '../../../components/label_text.dart';
 
 class SinInBody extends StatelessWidget {
   const SinInBody({
@@ -27,7 +27,7 @@ class SinInBody extends StatelessWidget {
             ),
             TextFieldInput(hinText: "Email"),
             TextFieldInput(hinText: "Password"),
-            RoundedButton(name: "Login",press: ()=>{}),
+            RoundedButton(name: "Login",marginVertical: 10,press: ()=>{}),
             SizedBox(
               height: 20,
               width: double.infinity,
@@ -42,16 +42,15 @@ class SinInBody extends StatelessWidget {
               height: 20,
               width: double.infinity,
             ),
-            RoundedButton(name: "Log in with phone number",press: ()=>{}),
-            RoundedButton(name: "Log in with Facebook",press: ()=>{}),
-            RoundedButton(name: "Log in with Google",press: ()=>{}),
+            RoundedButton(name: "Log in with phone number",marginVertical: 10,press: ()=>{}),
+            RoundedButton(name: "Log in with Facebook",marginVertical: 10,press: ()=>{}),
             SizedBox(
               height: 20,
               width: double.infinity,
             ),
             Container(
               margin: EdgeInsets.only(top: 10),
-              child: HaveAccountOrNot(
+              child: LabelText(
                 name: "Don’t have account ?",
                 selector: "Sign up",
               ),

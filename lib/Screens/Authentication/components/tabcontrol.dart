@@ -10,33 +10,36 @@ class TabControl extends StatelessWidget {
     return (MaterialApp(
       home: DefaultTabController(
         length: 2,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.white,
-            bottom: const TabBar(indicatorColor: textColor, tabs: [
-              Tab(
-                child: Text(
-                  "Login",
-                  style: TextStyle(
-                      color: textColor,
-                      fontSize: 24,
-                      fontFamily: textFont,
-                      fontWeight: FontWeight.w600),
+        child: Container(
+          constraints: BoxConstraints.expand(),
+          child: Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.white,
+              bottom: const TabBar(indicatorColor: textColor, tabs: [
+                Tab(
+                  child: Text(
+                    "Login",
+                    style: TextStyle(
+                        color: textColor,
+                        fontSize: 24,
+                        fontFamily: textFont,
+                        fontWeight: FontWeight.w600),
+                  ),
                 ),
-              ),
-              Tab(
-                child: Text(
-                  "Sign up",
-                  style: TextStyle(
-                      color: textColor,
-                      fontSize: 24,
-                      fontFamily: textFont,
-                      fontWeight: FontWeight.w600),
-                ),
-              )
-            ]),
+                Tab(
+                  child: Text(
+                    "Sign up",
+                    style: TextStyle(
+                        color: textColor,
+                        fontSize: 24,
+                        fontFamily: textFont,
+                        fontWeight: FontWeight.w600),
+                  ),
+                )
+              ]),
+            ),
+            body: TabBarView(children: [SinInBody(), SinUpBody()]),
           ),
-          body: TabBarView(children: [SinInBody(), SinUpBody()]),
         ),
       ),
     ));

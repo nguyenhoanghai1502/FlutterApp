@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mental_health/constants.dart';
-class HaveAccountOrNot extends StatelessWidget {
+class LabelText extends StatelessWidget {
   var name;
   var selector;
-  HaveAccountOrNot({this.name, this.selector});
+  LabelText({this.name, this.selector});
   @override
   Widget build(BuildContext context) {
     return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
