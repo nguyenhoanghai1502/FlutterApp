@@ -16,12 +16,12 @@ class TextFieldInput extends StatelessWidget {
         width: double.infinity,
         child: TextField(
             enabled: Enable,
-            cursorColor: textColor,
+            cursorColor: blackColor,
             decoration: InputDecoration(
               
               contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 20),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: textColor),
+                borderSide: BorderSide(color: blackColor),
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
               hintText: hinText,

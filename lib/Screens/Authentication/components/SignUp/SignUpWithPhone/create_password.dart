@@ -3,7 +3,7 @@ import 'package:flutter_mental_health/components/rounded_button.dart';
 import 'package:flutter_mental_health/components/text_field_input.dart';
 import 'package:flutter_mental_health/constants.dart';
 
-import '../tabcontrol.dart';
+import '../../tabcontrol.dart';
 import 'sign_up_with_phone.dart';
 
 class CreatePassword extends StatefulWidget {
@@ -28,14 +28,14 @@ class _CreatePasswordState extends State<CreatePassword> {
             child: Text(
               "Create Password",
               style: TextStyle(
-                  color: textColor,
+                  color: blackColor,
                   fontFamily: textFont,
                   fontSize: 18,
                   fontWeight: FontWeight.w400),
             ))),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
-            color: textColor,
+            color: blackColor,
             onPressed: () {
               Navigator.pop(context, false);
             }),
@@ -55,7 +55,7 @@ class _CreatePasswordState extends State<CreatePassword> {
               TextFieldInput(
                 hinText: '${widget.PhoneNum}',
                 Enable: false,
-                bgColor: buttonColor,
+                bgColor: greyColor,
               ),
               TextFieldInput(hinText: "Password"),
               TextFieldInput(hinText: "Verify Password"),
@@ -64,6 +64,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                   name: "Cancel",
                   marginVertical: 10,
                   bgColor: Colors.white,
+                  textColor: lightblueColor,
                   press: () => {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {

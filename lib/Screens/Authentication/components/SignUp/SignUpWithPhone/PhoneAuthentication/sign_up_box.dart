@@ -16,7 +16,7 @@ class _SignUpBoxesState extends State<SignUpBoxes> {
       maxLength: 6,
       pinBoxHeight: 45,
       pinBoxWidth: 45,
-      pinBoxColor: buttonColor,
+      pinBoxColor: lightblueColor,
       pinTextStyle:TextStyle(fontFamily: textFont,
       fontSize: 20
       ),

@@ -5,7 +5,8 @@ import 'package:flutter_mental_health/components/text_field_input.dart';
 import 'package:flutter_mental_health/constants.dart';
 import 'package:phone_form_field/phone_form_field.dart';
 import 'package:phone_numbers_parser/phone_numbers_parser.dart';
-import 'sign_up_authenticate/sign_up_authen.dart';
+import '../../tabcontrol.dart';
+import 'PhoneAuthentication/sign_up_authen.dart';
 
 class SignUpWithPhone extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class SignUpWithPhone extends StatefulWidget {
 }
 
 class _SignUpWithPhoneState extends State<SignUpWithPhone> {
-  String _phone='';
+  String _phone = '';
   final phoneEdittingController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -29,14 +30,14 @@ class _SignUpWithPhoneState extends State<SignUpWithPhone> {
             child: Text(
               "Sign up with phone number",
               style: TextStyle(
-                  color: textColor,
+                  color: blackColor,
                   fontFamily: textFont,
                   fontSize: 18,
                   fontWeight: FontWeight.w400),
             ))),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
-            color: textColor,
+            color: blackColor,
             onPressed: () {
               Navigator.pop(context, false);
             }),
@@ -60,15 +61,15 @@ class _SignUpWithPhoneState extends State<SignUpWithPhone> {
                   contentPadding: EdgeInsets.symmetric(vertical: 0),
                   hintText: " Phone",
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: textColor),
+                    borderSide: BorderSide(width: 1, color: blackColor),
                     borderRadius: BorderRadius.all(
                       Radius.circular(50),
                     ),
                   ),
-                  hintStyle: TextStyle(color: buttonColor),
+                  hintStyle: TextStyle(color: greyColor),
                   prefixIcon: Icon(
                     Icons.circle_rounded,
-                    color: buttonColor,
+                    color: greyColor,
                   ),
                   prefixText: prefixText,
                 ),
@@ -83,9 +84,27 @@ class _SignUpWithPhoneState extends State<SignUpWithPhone> {
                   press: () => {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return SignUpAuthenticate(PhoneNum:('0'+_phone),);
+                          return SignUpAuthenticate(
+                            PhoneNum: ('0' + _phone),
+                          );
                         }))
                       }),
+              SizedBox(
+                height: 10,
+                width: double.infinity,
+              ),
+              RoundedButton(
+                  name: "Cancel",
+                  marginVertical: 10,
+                  bgColor: Colors.transparent,
+                  textColor: lightblueColor,
+                  press: () => {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return TabControl();
+                        }))
+                      }),
+
             ],
           ),
         ),

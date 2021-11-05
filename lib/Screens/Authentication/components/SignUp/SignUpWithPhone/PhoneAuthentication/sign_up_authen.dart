@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mental_health/Screens/Authentication/components/SignUp/sign_up_authenticate/sign_up_box.dart';
+import 'package:flutter_mental_health/Screens/Authentication/components/SignUp/SignUpWithPhone/PhoneAuthentication/sign_up_box.dart';
+import 'package:flutter_mental_health/components/countdown_time.dart';
+import 'package:flutter_mental_health/components/label_text.dart';
 import 'package:flutter_mental_health/components/rounded_button.dart';
 import 'package:flutter_mental_health/components/text_field_input.dart';
 import 'package:flutter_mental_health/constants.dart';
@@ -21,14 +23,14 @@ class SignUpAuthenticate extends StatelessWidget {
             child: Text(
               "Sign up with phone number",
               style: TextStyle(
-                  color: textColor,
+                  color: blackColor,
                   fontFamily: textFont,
                   fontSize: 18,
                   fontWeight: FontWeight.w400),
             ))),
         leading: IconButton(
             icon: Icon(Icons.arrow_back_ios_new),
-            color: textColor,
+            color: blackColor,
             onPressed: () {
               Navigator.pop(context, false);
             }),
@@ -69,9 +71,22 @@ class SignUpAuthenticate extends StatelessWidget {
                   press: () => {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return CreatePassword(PhoneNum:PhoneNum);
+                          return CreatePassword(PhoneNum: PhoneNum);
                         }))
                       }),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [LabelText(name: "Didn't receive the OTP? "),CountDownText()])),
+              Text("Resend code",
+                  style: TextStyle(
+                    fontFamily: textFont,
+                    fontSize: fontSize,
+                    fontWeight: FontWeight.w700,
+                    color: linkColor,
+                    decoration: TextDecoration.underline,
+                  ))
             ],
           ),
         ),

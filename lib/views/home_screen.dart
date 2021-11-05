@@ -30,3 +30,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+
+class AppLocalizations {
+  static of(BuildContext context) {}
+}
